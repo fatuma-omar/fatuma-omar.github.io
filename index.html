@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Archive</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #1e1e2f;
+    }
+
+    header {
+      padding: 2rem;
+      background-color: #f4f4f8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #1e1e2f;
+      padding-top: 0.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      color: #555;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 2rem 2rem;
+      background-color: #fafafa;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #444;
+      margin-top: 2rem;
+    }
+
+    .quote span {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #777;
+    }
+
+    .year-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .year-section h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      text-decoration: none;
+      color: inherit;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card h4 {
+      margin-top: 0;
+      color: #111;
+    }
+
+    .card p {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="logo"></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2 style="font-size: 1.75em;">Code Archive</h2>
+    <p>Here is a repository of code snippets, complete implementations and scripts from all past and current projects
+      belonging to Fatuma M. A. Omar and collaborators.</p>
+    <div id="quote-box" class="quote"></div>
+  </section>
+
+  <section class="year-section">
+    <h2>2025</h2>
+    <div class="grid" id="project-grid"></div>
+  </section>
+
+  <script>
+    const quotes = [
+      { text: "When a tornado meets a volcano.", author: "Marshall Mathers" }
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quote-box").innerHTML = `“${randomQuote.text}”<span>~ ${randomQuote.author}</span>`;
+
+    const projects = [
+      {
+        title: "Effect of grace period on false alarm rates of smartwatch-based OHCA detection systems: a pilot study",
+        authors: "Roelof G. Hup, Chaimae Bouchnaf, Myrthe A. Plaisier, Fatuma M. A. Omar, Tobias A. Machiavello, Sophie L.M. van Spreuwel, Hanno L. Tan, Xi Long, Rik Vullings",
+        link: "Project-Grace-Period-BECA.html"
+      }
+    ];
+
+    const projectGrid = document.getElementById("project-grid");
+
+    projects.forEach(project => {
+      const card = document.createElement("a");
+      card.href = project.link;
+      card.className = "card";
+      card.innerHTML = `
+        <h4>${project.title}</h4>
+        <p><em>${project.authors}</em></p>
+      `;
+      projectGrid.appendChild(card);
+    });
+  </script>
+
+</body>
+
+</html>
